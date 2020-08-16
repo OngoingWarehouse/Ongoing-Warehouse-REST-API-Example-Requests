@@ -1,0 +1,778 @@
+{
+	"info": {
+		"_postman_id": "7069d1c5-ef9e-4a84-83ce-aca0e0226aad",
+		"name": "Ongoing WMS REST API v1 examples",
+		"description": "Example requests for the Ongoing WMS REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Create or update an article (only the required fields)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"articleNumber\": \"TestArticleNumber1\",\r\n  \"articleName\": \"Article name 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/articles",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create or update an article (with many additional fields)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"articleNumber\": \"TestArticleNumber_ManyFields1\",\r\n  \"articleName\": \"Article name 1\",\r\n  \"productCode\": \"ProductCode1\",\r\n  \"unitCode\": \"St\",\r\n  \"description\": \"Article description\",\r\n  \"supplierInfo\": {\r\n    \"supplierArticleNumber\": \"ArticleNumberAtSupplier1\",\r\n    \"supplierNumber\": \"Supplier1\",\r\n    \"supplierName\": \"Supplier Inc.\"\r\n  },\r\n  \"barCodeInfo\": {\r\n    \"barCode\": \"700123456\",\r\n    \"barCodePackage\": \"700456789\",\r\n    \"barCodePallet\": \"700789321\"\r\n  },\r\n  \"quantityPerPackage\": \"10\",\r\n  \"quantityPerPallet\": \"150\",\r\n  \"weight\": \"1.5\",\r\n  \"length\": \"2.6\",\r\n  \"width\": \"2.7\",\r\n  \"height\": \"2.8\",\r\n  \"volume\": \"2.9\",\r\n  \"purchasePrice\": \"10\",\r\n  \"stockValuationPrice\": \"11\",\r\n  \"customerPrice\": \"12\",\r\n  \"purcaseCurrencyCode\": \"EUR\",\r\n  \"countryOfOriginCode\": \"BE\",\r\n  \"statisticsNumber\": \"StatNumber1\",\r\n  \"articleGroup\": {\r\n    \"code\": \"GroupCode1\",\r\n    \"name\": \"Group Name 1\"\r\n  },\r\n  \"articleCategory\": {\r\n    \"code\": \"CategoryCode1\",\r\n    \"name\": \"Category Name 1\"\r\n  },\r\n  \"articleColor\": {\r\n    \"code\": \"WHITE\",\r\n    \"name\": \"White\"\r\n  },\r\n  \"articleSize\": {\r\n    \"code\": \"M\",\r\n    \"name\": \"Medium\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/articles",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an article using articleSystemId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles",
+								"{{ArticleSystemId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an article using the article number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/articles?goodsOwnerId={{GoodsOwnerId}}&articleNumber={{ArticleNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "articleNumber",
+									"value": "{{ArticleNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attach a file to an article",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/files",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles",
+								"{{ArticleSystemId}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all files which are attached to an article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/files",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles",
+								"{{ArticleSystemId}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "An article is a stock-keeping unit (SKU). That is, articles are the things which a goods owner keeps at a warehouse. Each article needs a unique article number.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "da87f4f4-015f-4ee7-9a54-3e9d1071dbea",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fb9408a-0423-435a-9b9f-11bc87fc477d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create or update an order (only the required fields)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"deliveryDate\": \"2019-10-10\",\r\n  \"orderNumber\": \"O987654\",\r\n  \"consignee\": {\r\n    \"customerNumber\": \"CN1\",\r\n    \"name\": \"Name 1\",\r\n    \"address1\": \"Address 1\",\r\n    \"postCode\": \"12345\",\r\n    \"city\": \"City\",\r\n    \"countryCode\": \"SE\"\r\n  },\r\n  \"orderLines\": [\r\n    {\r\n      \"rowNumber\": \"1\",\r\n      \"articleNumber\": \"1009\",\r\n      \"numberOfItems\": 2\r\n    },\r\n    {\r\n      \"rowNumber\": \"2\",\r\n      \"articleNumber\": \"1005\",\r\n      \"numberOfItems\": 5\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create or update an order (with many additional fields)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"orderNumber\": \"{{OrderNumber}}\",\r\n  \"deliveryDate\": \"2019-10-10\",\r\n  \"referenceNumber\": \"Ref1\",\r\n  \"goodsOwnerOrderId\": \"KL33334\",\r\n  \"salesCode\": \"Att. Test Testperson\",\r\n  \"orderRemark\": \"Very important order\",\r\n  \"deliveryInstruction\": \"Do not bend\",\r\n  \"servicePointCode\": \"3232323\",\r\n  \"freeText1\": \"FT1\",\r\n  \"freeText2\": \"FT2\",\r\n  \"freeText3\": \"FT3\",\r\n  \"orderType\": {\r\n    \"code\": \"B2B\",\r\n    \"name\": \"Business to Business\"\r\n  },\r\n  \"wayOfDelivery\": {\r\n    \"code\": \"SHP1\",\r\n    \"name\": \"Shipment way 1\"\r\n  },\r\n  \"consignee\": {\r\n    \"customerNumber\": \"CN1\",\r\n    \"name\": \"Name 1\",\r\n    \"address1\": \"Address 1\",\r\n    \"address2\": \"Address 2\",\r\n    \"address3\": \"Address 3\",\r\n    \"postCode\": \"12345\",\r\n    \"city\": \"City\",\r\n    \"countryCode\": \"US\",\r\n    \"countryStateCode\": \"MN\",\r\n    \"remark\": \"Very important customer\",\r\n    \"doorCode\": \"1111\"\r\n  },\r\n  \"emailNotification\": {\r\n    \"toBeNotified\": true,\r\n    \"value\": \"a@b.com\"\r\n  },\r\n  \"smsNotification\": {\r\n    \"toBeNotified\": true,\r\n    \"value\": \"123456789\"\r\n  },\r\n  \"telephoneNotification\": {\r\n    \"toBeNotified\": true,\r\n    \"value\": \"987564\"\r\n  },\r\n  \"transporter\": {\r\n    \"transporterCode\": \"PLAB\",\r\n    \"transporterServiceCode\": \"P18\"\r\n  },\r\n  \"returnTransporter\": {\r\n    \"transporterCode\": \"PLAB\",\r\n    \"transporterServiceCode\": \"P24\"\r\n  },\r\n  \"customsInfo\": {\r\n    \"customsValueCurrencyCode\": \"SEK\"\r\n  },\r\n  \"orderLines\": [\r\n    {\r\n      \"rowNumber\": \"1\",\r\n      \"articleNumber\": \"1009\",\r\n      \"numberOfItems\": 2,\r\n      \"comment\": \"Line comment 1\",\r\n      \"serialNumber\": \"SSN1\",\r\n      \"lineTotalCustomsValue\": 3000,\r\n      \"shouldBePicked\": true\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all possible order statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/statuses",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an order using orderId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an order using the order number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders?goodsOwnerId={{GoodsOwnerId}}&orderNumber={{OrderNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "orderNumber",
+									"value": "{{OrderNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attach a file to an order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/files",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all files which are attached to an order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/files",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel an order using the orderId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel an order using the order number",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders?goodsOwnerId={{GoodsOwnerId}}&orderNumber={{OrderNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "orderNumber",
+									"value": "{{OrderNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "An order is used to instruct the warehouse to ship articles to a specific customer. Each order needs a unique order number. You may not have two different orders with the same order number.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c37cba19-26c0-4b31-9b12-62e5fc9890fb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5670db3-1041-4b1f-ab89-347510e7806a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Purchase order",
+			"item": [
+				{
+					"name": "Create or update a purchase order (only the required fields)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"purchaseOrderNumber\": \"{{PurchaseOrderNumber}}\",\r\n  \"purchaseOrderLines\": [\r\n    {\r\n      \"rowNumber\": \"1\",\r\n      \"articleNumber\": \"CK2\",\r\n      \"numberOfItems\": 2\r\n    },\r\n    {\r\n      \"rowNumber\": \"2\",\r\n      \"articleNumber\": \"CK5\",\r\n      \"numberOfItems\": 10\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create or update a purchase order (with many additional fields)",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"purchaseOrderNumber\": \"{{PurchaseOrderNumber}}\",\r\n  \"supplierOrderNumber\": \"SUP2343\",\r\n  \"goodsOwnerReference\": \"REF 1\",\r\n  \"referenceNumber\": \"REF 2\",\r\n  \"inDate\": \"2019-11-01\",\r\n  \"supplierInfo\": {\r\n    \"supplierNumber\": \"SUP3\",\r\n    \"supplierName\": \"Supplier No. 3, Inc\"\r\n  },\r\n  \"purchaseOrderLines\": [\r\n    {\r\n      \"rowNumber\": \"1\",\r\n      \"articleNumber\": \"CK2\",\r\n      \"numberOfItems\": 2,\r\n      \"comment\": \"Line comment 1\"\r\n    },\r\n    {\r\n      \"rowNumber\": \"2\",\r\n      \"articleNumber\": \"CK5\",\r\n      \"numberOfItems\": 10,\r\n      \"comment\": \"Line comment 2\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a purchase order using purchaseOrderId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"{{PurchaseOrderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a purchase order using the purchase order number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders?goodsOwnerId={{GoodsOwnerId}}&purchaseOrderNumber={{PurchaseOrderNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "purchaseOrderNumber",
+									"value": "{{PurchaseOrderNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all possible purchase order statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/statuses",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel a purchase order using the purchaseOrderId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"{{PurchaseOrderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel a purchase order using the purchase order number",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders?goodsOwnerId={{GoodsOwnerId}}&purchaseOrderNumber={{PurchaseOrderNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "purchaseOrderNumber",
+									"value": "{{PurchaseOrderNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "A purchase order is used to advise the warehouse of incoming deliveries. Each purchase order needs a unique purchase order number.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "97118e80-930a-48bb-9764-fb6e9bbd2269",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "091b88b8-acb5-44e0-aa4c-db59b24ae17e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Inventory adjustments",
+			"item": [
+				{
+					"name": "Get inventory adjustments between two dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/inventoryAdjustments?goodsOwnerId={{GoodsOwnerId}}&from=2019-04-09T08%3A00%3A00.000%2B00%3A00&to=2019-04-09T09%3A00%3A00.000%2B00%3A00",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"inventoryAdjustments"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "from",
+									"value": "2019-04-09T08%3A00%3A00.000%2B00%3A00"
+								},
+								{
+									"key": "to",
+									"value": "2019-04-09T09%3A00%3A00.000%2B00%3A00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Inventory adjustments are manual stock balance adjustment are made by the warehouse to correct stock balance errors.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ee85cf4d-664b-4573-891f-6123498a7cee",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b3970be-37d3-4e85-9b01-b629020acf55",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Transporter contracts",
+			"item": [
+				{
+					"name": "Get all transporter contracts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/transporterContracts?goodsOwnerId={{GoodsOwnerId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"transporterContracts"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The transporter contracts describe which transporters are available to use when shipping goods to customers.",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "password",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "username",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "19d3e4ff-404f-437e-b619-2a83486a2f0e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8d04418e-9ce7-4264-956b-89ebb84a6279",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f0dea119-e5c0-45aa-8279-4a7b6a983673",
+			"key": "GoodsOwnerId",
+			"value": "-1"
+		},
+		{
+			"id": "a0eec0b0-ee39-495d-bb22-eb76eecd9954",
+			"key": "ArticleSystemId",
+			"value": "-1"
+		},
+		{
+			"id": "2919cb72-4aa7-4c52-ae61-78fa95ac266c",
+			"key": "OrderId",
+			"value": "-1"
+		},
+		{
+			"id": "7adbc224-fe96-4c74-b9c4-f6bcd0f4de51",
+			"key": "PurchaseOrderId",
+			"value": "-1"
+		},
+		{
+			"id": "d4aebf74-61f1-4d67-9e80-e7db5fd84a9c",
+			"key": "OngoingURL",
+			"value": "https://api.ongoingsystems.se/YourWarehouse/api/v1"
+		},
+		{
+			"id": "e8daaf9a-4ad4-430b-a0ca-bcac1306a208",
+			"key": "OrderNumber",
+			"value": "TestOrder1"
+		},
+		{
+			"id": "927599ee-7f55-4f64-9eda-702aaec4d0d2",
+			"key": "PurchaseOrderNumber",
+			"value": "TestPurchaseOrder1"
+		},
+		{
+			"id": "3a8f799e-40ce-49bb-8b51-776db731ff19",
+			"key": "ArticleNumber",
+			"value": "TestArticleNumber1"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
