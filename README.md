@@ -12,6 +12,7 @@ These examples will show you how to:
 * Create and update articles (including attaching files to articles).
 * Create and update orders (including attaching files to orders).
 * Create and update purchase orders.
+* Create and update return orders.
 * Read inventory adjustments.
 * Read transporter contracts (shipping methods).
 
