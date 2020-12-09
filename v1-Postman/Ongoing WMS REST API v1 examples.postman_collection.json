@@ -715,13 +715,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{OngoingURL}}/returnOrders/returnCauses",
+							"raw": "{{OngoingURL}}/returnOrders/returnCauses?goodsOwnerId={{GoodsOwnerId}}",
 							"host": [
 								"{{OngoingURL}}"
 							],
 							"path": [
 								"returnOrders",
 								"returnCauses"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								}
 							]
 						}
 					},
@@ -1126,62 +1132,62 @@
 	],
 	"variable": [
 		{
-			"id": "2d4377e5-e0c1-4675-89dc-e5a8f9043205",
+			"id": "3749bade-de4f-4af2-be71-82b2dfb10f88",
 			"key": "GoodsOwnerId",
 			"value": "-1"
 		},
 		{
-			"id": "b4d78823-8c6d-47f6-9e6f-9f57f6efb2f4",
+			"id": "2349efd3-4ee6-4ec1-bd12-1bfc6ecbf543",
 			"key": "ArticleSystemId",
 			"value": "-1"
 		},
 		{
-			"id": "4cc157d7-59b7-4f9a-ac1d-9787a5b5ecaa",
+			"id": "94604dd9-fdef-45a1-b1d2-2ab0b5809ae0",
 			"key": "OrderId",
 			"value": "-1"
 		},
 		{
-			"id": "fd32546e-53c3-4bce-baeb-30b63d772890",
+			"id": "b81c7003-727d-4148-b7db-d1a544e1fd6e",
 			"key": "PurchaseOrderId",
 			"value": "-1"
 		},
 		{
-			"id": "c35ceda7-2e03-40b8-9ce7-fc5e310ba4c6",
+			"id": "21a04c62-3671-4509-8592-71387d11d512",
 			"key": "OngoingURL",
 			"value": "https://api.ongoingsystems.se/YourWarehouse/api/v1"
 		},
 		{
-			"id": "4238c18d-3537-4228-a8b8-27781bd94233",
+			"id": "329a0189-3785-4b7f-b833-aed62f0144cd",
 			"key": "OrderNumber",
 			"value": "TestOrder1"
 		},
 		{
-			"id": "ab0f7a7c-3632-4848-839b-2b4e8835d747",
+			"id": "8fe38b77-e129-47b0-aea7-aa422fdecb01",
 			"key": "PurchaseOrderNumber",
 			"value": "TestPurchaseOrder1"
 		},
 		{
-			"id": "06482c79-bd70-4b80-87ff-9caba38c667a",
+			"id": "abfa1fe2-d736-4975-817d-6e3e2d401e05",
 			"key": "ArticleNumber",
 			"value": "TestArticleNumber1"
 		},
 		{
-			"id": "c32b8eee-c1e4-48ba-b227-d04878b9b1ad",
+			"id": "0c09519d-afea-4790-af96-635e46e25fdc",
 			"key": "OrderLineId",
 			"value": "-1"
 		},
 		{
-			"id": "89f01097-e864-40a3-a05b-2be77974b1cd",
+			"id": "81b68029-0ac4-41d5-aa47-963e029eb1c9",
 			"key": "PurchaseOrderLineId",
 			"value": "-1"
 		},
 		{
-			"id": "d9d8d9e2-ef8d-4b0e-9162-ee366fb8d043",
+			"id": "d3567361-5d38-4571-8693-742221b2504f",
 			"key": "ReturnOrderNumber",
 			"value": "TestReturnOrder1"
 		},
 		{
-			"id": "c6e7bf71-44f1-49fe-8ec8-ce50c8efa098",
+			"id": "bcb6f9cc-06f0-4b6b-b0d8-563cb4776110",
 			"key": "ReturnOrderId",
 			"value": "-1"
 		}
