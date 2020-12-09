@@ -4,7 +4,7 @@
 
 We provide several [Application Programming Interfaces (APIs)](https://developer.ongoingwarehouse.com/). One of them is [based on REST](https://developer.ongoingwarehouse.com/REST/v1/index.html). In this repository, we provide examples of what the requests and responses look like.
 
-In the directory called ``v1-Postman`` you will find a [Postman]([https://www.postman.com/](https://www.postman.com/)) collection containing the requests. Postman is a program which can make API requests. You can use it to test out APIs. Note that the collection uses [Postman variables]([https://learning.postman.com/docs/sending-requests/managing-environments/](https://learning.postman.com/docs/sending-requests/managing-environments/)), which you will have to modify to suit your particular case. You will also have to fill in the username and password for your API user.
+In the directory called ``v1-Postman`` you will find a [Postman](https://www.postman.com/) collection containing the requests. Postman is a program which can make API requests. You can use it to test out APIs. Note that the collection uses [Postman variables](https://learning.postman.com/docs/sending-requests/managing-environments/), which you will have to modify to suit your particular case. You will also have to fill in the username and password for your API user.
 
 If you do not wish to use Postman, look in  the directory called ``v1`` where you will find simple text files containing some example requests and responses.
 
