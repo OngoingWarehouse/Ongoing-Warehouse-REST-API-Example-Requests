@@ -636,6 +636,101 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Return orders",
+			"item": [
+				{
+					"name": "Create or update a return order",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"goodsOwnerId\": {{GoodsOwnerId}},\r\n    \"returnOrderNumber\": \"{{ReturnOrderNumber}}\",\r\n    \"customerOrder\": {\r\n        \"orderId\": {{OrderId}}\r\n    },\r\n    \"comment\": \"Return order comment\",\r\n    \"inDate\": \"2021-02-01\",\r\n    \"returnOrderLines\": [\r\n        {\r\n            \"returnOrderRowNumber\": \"Return-Row-1\",\r\n            \"customerOrderLine\": {\r\n                \"orderLineId\": {{OrderLineId}}\r\n            },\r\n            \"toBeReturnedNumberOfItems\": 3.0,\r\n            \"returnCause\": {\r\n                \"code\": \"SIZE\",\r\n                \"name\": \"Wrong size\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/returnOrders",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"returnOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a return order using the return order id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/returnOrders/{{ReturnOrderId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"returnOrders",
+								"{{ReturnOrderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a return order using the customer order number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/returnOrders?goodsOwnerId={{GoodsOwnerId}}&customerOrderNumbers={{OrderNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"returnOrders"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "customerOrderNumbers",
+									"value": "{{OrderNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all possible return causes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/returnOrders/returnCauses",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"returnOrders",
+								"returnCauses"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Purchase order",
 			"item": [
 				{
@@ -1031,53 +1126,63 @@
 	],
 	"variable": [
 		{
-			"id": "e4a4c24c-5fa5-4a00-b327-9cd344949c63",
+			"id": "2d4377e5-e0c1-4675-89dc-e5a8f9043205",
 			"key": "GoodsOwnerId",
 			"value": "-1"
 		},
 		{
-			"id": "f0cb5f4d-74c9-4a67-9f97-4ef8e5b7edff",
+			"id": "b4d78823-8c6d-47f6-9e6f-9f57f6efb2f4",
 			"key": "ArticleSystemId",
 			"value": "-1"
 		},
 		{
-			"id": "81f24cf8-6587-425b-bbd1-b54a5b17f820",
+			"id": "4cc157d7-59b7-4f9a-ac1d-9787a5b5ecaa",
 			"key": "OrderId",
 			"value": "-1"
 		},
 		{
-			"id": "7347406a-a4f7-4cbe-8cfe-8ebf6ede1146",
+			"id": "fd32546e-53c3-4bce-baeb-30b63d772890",
 			"key": "PurchaseOrderId",
 			"value": "-1"
 		},
 		{
-			"id": "ffd54fe9-35de-4df8-8275-4bc8041bd37e",
+			"id": "c35ceda7-2e03-40b8-9ce7-fc5e310ba4c6",
 			"key": "OngoingURL",
 			"value": "https://api.ongoingsystems.se/YourWarehouse/api/v1"
 		},
 		{
-			"id": "9fa6d59a-e1da-4081-91c0-e901fa4e9a3a",
+			"id": "4238c18d-3537-4228-a8b8-27781bd94233",
 			"key": "OrderNumber",
 			"value": "TestOrder1"
 		},
 		{
-			"id": "aea26edf-7b38-499e-9f25-26cc956346d9",
+			"id": "ab0f7a7c-3632-4848-839b-2b4e8835d747",
 			"key": "PurchaseOrderNumber",
 			"value": "TestPurchaseOrder1"
 		},
 		{
-			"id": "256836f4-197d-4e39-a701-7b9b452120c1",
+			"id": "06482c79-bd70-4b80-87ff-9caba38c667a",
 			"key": "ArticleNumber",
 			"value": "TestArticleNumber1"
 		},
 		{
-			"id": "235b4f45-12d4-4ce1-949b-117de2a7f295",
+			"id": "c32b8eee-c1e4-48ba-b227-d04878b9b1ad",
 			"key": "OrderLineId",
 			"value": "-1"
 		},
 		{
-			"id": "d3a7e59a-b332-44c0-850f-c7c39e1a4888",
+			"id": "89f01097-e864-40a3-a05b-2be77974b1cd",
 			"key": "PurchaseOrderLineId",
+			"value": "-1"
+		},
+		{
+			"id": "d9d8d9e2-ef8d-4b0e-9162-ee366fb8d043",
+			"key": "ReturnOrderNumber",
+			"value": "TestReturnOrder1"
+		},
+		{
+			"id": "c6e7bf71-44f1-49fe-8ec8-ce50c8efa098",
+			"key": "ReturnOrderId",
 			"value": "-1"
 		}
 	],
