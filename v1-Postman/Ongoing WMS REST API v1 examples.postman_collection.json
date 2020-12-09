@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7069d1c5-ef9e-4a84-83ce-aca0e0226aad",
+		"_postman_id": "1286c709-a711-43a1-b062-35771f53b4e6",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -159,7 +159,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "da87f4f4-015f-4ee7-9a54-3e9d1071dbea",
+						"id": "73ccc0b2-fed4-4ba7-ad6a-3cb43cc30b66",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -169,12 +169,45 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4fb9408a-0423-435a-9b9f-11bc87fc477d",
+						"id": "3174833a-4694-44e9-9c44-1300b320fcba",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Article items",
+			"item": [
+				{
+					"name": "Get all article items for a specific article number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/articleItems?goodsOwnerId={{GoodsOwnerId}}&articleNumbers={{ArticleNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articleItems"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "articleNumbers",
+									"value": "{{ArticleNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -247,6 +280,30 @@
 							"path": [
 								"orders",
 								"statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all possible order types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/types?goodsOwnerId={{GoodsOwnerId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"types"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								}
 							]
 						}
 					},
@@ -388,6 +445,169 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update the order number of an existing order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"orderNumber\": \"NewOrderNumber\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/orderNumber",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"orderNumber"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the waybill of an existing order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"waybill\": \"Waybill-123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/waybill",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"waybill"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the return waybill of an existing order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"returnWaybill\": \"Return-Waybill-123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/returnWaybill",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"returnWaybill"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set the reported number of items to picked number of items",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/setReportedNumberOfItemsToPickedNumberOfItems",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"setReportedNumberOfItemsToPickedNumberOfItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the reported number of items on a particular order line",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reportedNumberOfItems\": 2.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/lines/{{OrderLineId}}/reportedNumberOfItems",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"lines",
+								"{{OrderLineId}}",
+								"reportedNumberOfItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the reported returned number of items on a particular order line",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reportedReturnedNumberOfItems\": 2.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/lines/{{OrderLineId}}/reportedReturnedNumberOfItems",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}",
+								"lines",
+								"{{OrderLineId}}",
+								"reportedReturnedNumberOfItems"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "An order is used to instruct the warehouse to ship articles to a specific customer. Each order needs a unique order number. You may not have two different orders with the same order number.",
@@ -395,7 +615,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c37cba19-26c0-4b31-9b12-62e5fc9890fb",
+						"id": "502f89b1-22da-4ee7-8b6b-6da75adc09ec",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -405,7 +625,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a5670db3-1041-4b1f-ab89-347510e7806a",
+						"id": "1063c2f8-e611-403f-a447-414fee23d5f0",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -534,6 +754,30 @@
 					"response": []
 				},
 				{
+					"name": "Get all possible purchase order types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/types?goodsOwnerId={{GoodsOwnerId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"types"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Cancel a purchase order using the purchaseOrderId",
 					"request": {
 						"method": "DELETE",
@@ -577,6 +821,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Update the reported number of items on a particular purchase order line",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reportedNumberOfItems\": 3.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}/lines/{{PurchaseOrderLineId}}/reportedNumberOfItems",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"{{PurchaseOrderId}}",
+								"lines",
+								"{{PurchaseOrderLineId}}",
+								"reportedNumberOfItems"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "A purchase order is used to advise the warehouse of incoming deliveries. Each purchase order needs a unique purchase order number.",
@@ -584,7 +858,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "97118e80-930a-48bb-9764-fb6e9bbd2269",
+						"id": "8498a036-46df-4e86-b043-5b1c7c616fa7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -594,7 +868,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "091b88b8-acb5-44e0-aa4c-db59b24ae17e",
+						"id": "8e016937-7fb0-4ef0-8cdf-2ecb64a3397e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -644,7 +918,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ee85cf4d-664b-4573-891f-6123498a7cee",
+						"id": "a08ccb0b-1363-4006-bf27-0c64694e9303",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -654,7 +928,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0b3970be-37d3-4e85-9b01-b629020acf55",
+						"id": "4a5fbf9f-92a2-49fd-9a15-5ec3ef5e33f6",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -693,6 +967,29 @@
 			],
 			"description": "The transporter contracts describe which transporters are available to use when shipping goods to customers.",
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Warehouses",
+			"item": [
+				{
+					"name": "Get all warehouses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/warehouses",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"warehouses"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -714,7 +1011,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "19d3e4ff-404f-437e-b619-2a83486a2f0e",
+				"id": "4bfacc1a-1832-4425-8b0e-d9eef3c71ad0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -724,7 +1021,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "8d04418e-9ce7-4264-956b-89ebb84a6279",
+				"id": "e0550477-9653-4e42-882b-0cf3dbb8ea94",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -734,44 +1031,54 @@
 	],
 	"variable": [
 		{
-			"id": "f0dea119-e5c0-45aa-8279-4a7b6a983673",
+			"id": "e4a4c24c-5fa5-4a00-b327-9cd344949c63",
 			"key": "GoodsOwnerId",
 			"value": "-1"
 		},
 		{
-			"id": "a0eec0b0-ee39-495d-bb22-eb76eecd9954",
+			"id": "f0cb5f4d-74c9-4a67-9f97-4ef8e5b7edff",
 			"key": "ArticleSystemId",
 			"value": "-1"
 		},
 		{
-			"id": "2919cb72-4aa7-4c52-ae61-78fa95ac266c",
+			"id": "81f24cf8-6587-425b-bbd1-b54a5b17f820",
 			"key": "OrderId",
 			"value": "-1"
 		},
 		{
-			"id": "7adbc224-fe96-4c74-b9c4-f6bcd0f4de51",
+			"id": "7347406a-a4f7-4cbe-8cfe-8ebf6ede1146",
 			"key": "PurchaseOrderId",
 			"value": "-1"
 		},
 		{
-			"id": "d4aebf74-61f1-4d67-9e80-e7db5fd84a9c",
+			"id": "ffd54fe9-35de-4df8-8275-4bc8041bd37e",
 			"key": "OngoingURL",
 			"value": "https://api.ongoingsystems.se/YourWarehouse/api/v1"
 		},
 		{
-			"id": "e8daaf9a-4ad4-430b-a0ca-bcac1306a208",
+			"id": "9fa6d59a-e1da-4081-91c0-e901fa4e9a3a",
 			"key": "OrderNumber",
 			"value": "TestOrder1"
 		},
 		{
-			"id": "927599ee-7f55-4f64-9eda-702aaec4d0d2",
+			"id": "aea26edf-7b38-499e-9f25-26cc956346d9",
 			"key": "PurchaseOrderNumber",
 			"value": "TestPurchaseOrder1"
 		},
 		{
-			"id": "3a8f799e-40ce-49bb-8b51-776db731ff19",
+			"id": "256836f4-197d-4e39-a701-7b9b452120c1",
 			"key": "ArticleNumber",
 			"value": "TestArticleNumber1"
+		},
+		{
+			"id": "235b4f45-12d4-4ce1-949b-117de2a7f295",
+			"key": "OrderLineId",
+			"value": "-1"
+		},
+		{
+			"id": "d3a7e59a-b332-44c0-850f-c7c39e1a4888",
+			"key": "PurchaseOrderLineId",
+			"value": "-1"
 		}
 	],
 	"protocolProfileBehavior": {}
