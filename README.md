@@ -1,6 +1,6 @@
 <a href="https://www.ongoingwarehouse.com">![Logo](https://www.ongoingwarehouse.com/images/logotype.png)</a>
-# Ongoing Warehouse REST API example requests
-[Ongoing Warehouse](https://www.ongoingwarehouse.com/) is a Warehouse Management System (WMS).
+# Ongoing Warehouse Goods Owner REST API example requests
+[Ongoing WMS](https://www.ongoingwarehouse.com/) is a Warehouse Management System (WMS).
 
 We provide several [Application Programming Interfaces (APIs)](https://developer.ongoingwarehouse.com/). One of them is [based on REST](https://developer.ongoingwarehouse.com/REST/v1/index.html). In this repository, we provide examples of what the requests and responses look like.
 
