@@ -1091,6 +1091,44 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all zones for a particular warehouse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/warehouses/{{warehouseId}}/zones",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"warehouses",
+								"{{warehouseId}}",
+								"zones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all location types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/warehouses/locations/types",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"warehouses",
+								"locations",
+								"types"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
