@@ -725,6 +725,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all return order statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/returnOrders/statuses",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"returnOrders",
+								"statuses"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
