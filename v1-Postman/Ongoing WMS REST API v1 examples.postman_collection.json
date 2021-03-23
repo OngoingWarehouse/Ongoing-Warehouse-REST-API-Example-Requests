@@ -306,6 +306,24 @@
 					"response": []
 				},
 				{
+					"name": "Get all order classes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/classes",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"classes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get an order using orderId",
 					"request": {
 						"method": "GET",
