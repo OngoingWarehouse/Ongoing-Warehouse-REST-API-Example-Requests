@@ -1037,6 +1037,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get a specific inventory adjustment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/inventoryAdjustments/{{InventoryId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"inventoryAdjustments",
+								"{{InventoryId}}"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Inventory adjustments are manual stock balance adjustment are made by the warehouse to correct stock balance errors.",
