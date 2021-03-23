@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1286c709-a711-43a1-b062-35771f53b4e6",
+		"_postman_id": "98996727-5275-4093-9711-cd5b46c5d194",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -159,7 +159,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "73ccc0b2-fed4-4ba7-ad6a-3cb43cc30b66",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -169,15 +168,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3174833a-4694-44e9-9c44-1300b320fcba",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Article items",
@@ -209,8 +206,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Order",
@@ -268,7 +264,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all possible order statuses",
+					"name": "Get all order statuses",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -286,7 +282,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all possible order types",
+					"name": "Get all order types",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -615,7 +611,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "502f89b1-22da-4ee7-8b6b-6da75adc09ec",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -625,15 +620,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1063c2f8-e611-403f-a447-414fee23d5f0",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Return orders",
@@ -710,7 +703,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all possible return causes",
+					"name": "Get all return causes",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -733,8 +726,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Purchase order",
@@ -837,7 +829,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all possible purchase order statuses",
+					"name": "Get all purchase order statuses",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -855,7 +847,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all possible purchase order types",
+					"name": "Get all purchase order types",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -959,7 +951,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8498a036-46df-4e86-b043-5b1c7c616fa7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -969,15 +960,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8e016937-7fb0-4ef0-8cdf-2ecb64a3397e",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Inventory adjustments",
@@ -1019,7 +1008,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a08ccb0b-1363-4006-bf27-0c64694e9303",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1029,15 +1017,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4a5fbf9f-92a2-49fd-9a15-5ec3ef5e33f6",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Transporter contracts",
@@ -1066,8 +1052,7 @@
 					"response": []
 				}
 			],
-			"description": "The transporter contracts describe which transporters are available to use when shipping goods to customers.",
-			"protocolProfileBehavior": {}
+			"description": "The transporter contracts describe which transporters are available to use when shipping goods to customers."
 		},
 		{
 			"name": "Warehouses",
@@ -1089,8 +1074,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"auth": {
@@ -1112,7 +1096,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4bfacc1a-1832-4425-8b0e-d9eef3c71ad0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1122,7 +1105,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e0550477-9653-4e42-882b-0cf3dbb8ea94",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1132,65 +1114,52 @@
 	],
 	"variable": [
 		{
-			"id": "3749bade-de4f-4af2-be71-82b2dfb10f88",
 			"key": "GoodsOwnerId",
 			"value": "-1"
 		},
 		{
-			"id": "2349efd3-4ee6-4ec1-bd12-1bfc6ecbf543",
 			"key": "ArticleSystemId",
 			"value": "-1"
 		},
 		{
-			"id": "94604dd9-fdef-45a1-b1d2-2ab0b5809ae0",
 			"key": "OrderId",
 			"value": "-1"
 		},
 		{
-			"id": "b81c7003-727d-4148-b7db-d1a544e1fd6e",
 			"key": "PurchaseOrderId",
 			"value": "-1"
 		},
 		{
-			"id": "21a04c62-3671-4509-8592-71387d11d512",
 			"key": "OngoingURL",
 			"value": "https://api.ongoingsystems.se/YourWarehouse/api/v1"
 		},
 		{
-			"id": "329a0189-3785-4b7f-b833-aed62f0144cd",
 			"key": "OrderNumber",
 			"value": "TestOrder1"
 		},
 		{
-			"id": "8fe38b77-e129-47b0-aea7-aa422fdecb01",
 			"key": "PurchaseOrderNumber",
 			"value": "TestPurchaseOrder1"
 		},
 		{
-			"id": "abfa1fe2-d736-4975-817d-6e3e2d401e05",
 			"key": "ArticleNumber",
 			"value": "TestArticleNumber1"
 		},
 		{
-			"id": "0c09519d-afea-4790-af96-635e46e25fdc",
 			"key": "OrderLineId",
 			"value": "-1"
 		},
 		{
-			"id": "81b68029-0ac4-41d5-aa47-963e029eb1c9",
 			"key": "PurchaseOrderLineId",
 			"value": "-1"
 		},
 		{
-			"id": "d3567361-5d38-4571-8693-742221b2504f",
 			"key": "ReturnOrderNumber",
 			"value": "TestReturnOrder1"
 		},
 		{
-			"id": "bcb6f9cc-06f0-4b6b-b0d8-563cb4776110",
 			"key": "ReturnOrderId",
 			"value": "-1"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
