@@ -107,6 +107,34 @@
 					"response": []
 				},
 				{
+					"name": "Get inventory info (specified per warehouse) for a specific article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/articles/inventoryPerWarehouse?goodsOwnerId={{GoodsOwnerId}}&articleNumbers={{ArticleNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articles",
+								"inventoryPerWarehouse"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "articleNumbers",
+									"value": "{{ArticleNumber}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Attach a file to an article",
 					"request": {
 						"method": "POST",
