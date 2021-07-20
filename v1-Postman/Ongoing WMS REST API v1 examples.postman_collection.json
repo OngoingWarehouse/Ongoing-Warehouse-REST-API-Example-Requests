@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "98996727-5275-4093-9711-cd5b46c5d194",
+		"_postman_id": "00bc5ad6-ef1b-4db4-9b50-09e45e03d79a",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -9,6 +9,217 @@
 		{
 			"name": "Article",
 			"item": [
+				{
+					"name": "Dangerous goods",
+					"item": [
+						{
+							"name": "Get dangerous goods info using article numbers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/dangerousGoods?goodsOwnerId={{GoodsOwnerId}}&articleNumbers={{ArticleNumber}}",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"dangerousGoods"
+									],
+									"query": [
+										{
+											"key": "goodsOwnerId",
+											"value": "{{GoodsOwnerId}}"
+										},
+										{
+											"key": "articleNumbers",
+											"value": "{{ArticleNumber}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get dangerous goods info using articleSystemId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/dangerousGoods",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"{{ArticleSystemId}}",
+										"dangerousGoods"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update the dangerous goods info using articleSystemId",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"unNumber\": \"3019\",\r\n  \"unPackageType\": \"I\",\r\n  \"unLabelNumbers\": \"\",\r\n  \"unIsMarineHazard\": false,\r\n  \"dangerousGoodsCoefficient\": 0,\r\n  \"emsCode\": \"\",\r\n  \"unProperShippingNames\": [\r\n    {\r\n      \"languageCode\": \"en\",\r\n      \"name\": \"Shipping Name\"\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/dangerousGoods",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"{{ArticleSystemId}}",
+										"dangerousGoods"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update the dangerous goods info using article number",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"goodsOwnerId\": {{GoodsOwnerId}},\r\n    \"articleNumber\": \"{{ArticleNumber}}\",\r\n    \"dangerousGoods\": {\r\n        \"unNumber\": \"3019\",\r\n        \"unPackageType\": \"I\",\r\n        \"unLabelNumbers\": \"\",\r\n        \"unIsMarineHazard\": false,\r\n        \"dangerousGoodsCoefficient\": 0,\r\n        \"emsCode\": \"\",\r\n        \"unProperShippingNames\": [\r\n            {\r\n                \"languageCode\": \"en\",\r\n                \"name\": \"Shipping Name\"\r\n            }\r\n        ]\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/articles/dangerousGoods",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"dangerousGoods"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Attach a file to an article",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/files",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"{{ArticleSystemId}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all files which are attached to an article",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/files",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"{{ArticleSystemId}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Structure definition",
+					"item": [
+						{
+							"name": "Get structure definition using article numbers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/structureDefinitions?goodsOwnerId={{GoodsOwnerId}}&articleNumbers={{ArticleNumber}}",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"structureDefinitions"
+									],
+									"query": [
+										{
+											"key": "goodsOwnerId",
+											"value": "{{GoodsOwnerId}}"
+										},
+										{
+											"key": "articleNumbers",
+											"value": "{{ArticleNumber}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get structure definition using articleSystemId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/structureDefinition",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"{{ArticleSystemId}}",
+										"structureDefinition"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Create or update an article (only the required fields)",
 					"request": {
@@ -133,53 +344,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Attach a file to an article",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/files",
-							"host": [
-								"{{OngoingURL}}"
-							],
-							"path": [
-								"articles",
-								"{{ArticleSystemId}}",
-								"files"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all files which are attached to an article",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/files",
-							"host": [
-								"{{OngoingURL}}"
-							],
-							"path": [
-								"articles",
-								"{{ArticleSystemId}}",
-								"files"
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"description": "An article is a stock-keeping unit (SKU). That is, articles are the things which a goods owner keeps at a warehouse. Each article needs a unique article number.",
@@ -239,6 +403,58 @@
 		{
 			"name": "Order",
 			"item": [
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Attach a file to an order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/orders/{{OrderId}}/files",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"orders",
+										"{{OrderId}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all files which are attached to an order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/orders/{{OrderId}}/files",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"orders",
+										"{{OrderId}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Create or update an order (only the required fields)",
 					"request": {
@@ -391,53 +607,6 @@
 									"key": "orderNumber",
 									"value": "{{OrderNumber}}"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Attach a file to an order",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{OngoingURL}}/orders/{{OrderId}}/files",
-							"host": [
-								"{{OngoingURL}}"
-							],
-							"path": [
-								"orders",
-								"{{OrderId}}",
-								"files"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all files which are attached to an order",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{OngoingURL}}/orders/{{OrderId}}/files",
-							"host": [
-								"{{OngoingURL}}"
-							],
-							"path": [
-								"orders",
-								"{{OrderId}}",
-								"files"
 							]
 						}
 					},
