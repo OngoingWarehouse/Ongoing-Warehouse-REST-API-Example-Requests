@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "16be025e-5f72-4890-9092-684031dc7025",
+		"_postman_id": "202d1375-3764-4276-9caf-8bef4c39586a",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1067,6 +1067,58 @@
 		{
 			"name": "Purchase order",
 			"item": [
+				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Attach a file to a purchase order",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fileName\": \"TestFile.txt\",\r\n  \"mimeType\": \"application/text\",\r\n  \"fileDataBase64\": \"QSBzdHJpbmc=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}/files",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"purchaseOrders",
+										"{{PurchaseOrderId}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all files which are attached to a purchase order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}/files",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"purchaseOrders",
+										"{{PurchaseOrderId}}",
+										"files"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Create or update a purchase order (only the required fields)",
 					"request": {
