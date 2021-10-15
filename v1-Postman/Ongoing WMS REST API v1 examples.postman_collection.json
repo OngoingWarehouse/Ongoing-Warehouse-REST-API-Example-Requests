@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "202d1375-3764-4276-9caf-8bef4c39586a",
+		"_postman_id": "69ba7093-13cf-4286-84c2-40fd429dccd6",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1365,7 +1365,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{OngoingURL}}/inventoryAdjustments?goodsOwnerId={{GoodsOwnerId}}&from=2019-04-09T08%3A00%3A00.000%2B00%3A00&to=2019-04-09T09%3A00%3A00.000%2B00%3A00",
+							"raw": "{{OngoingURL}}/inventoryAdjustments?goodsOwnerId={{GoodsOwnerId}}&from=2019-04-09T08%3A00%3A00.000%2B00%3A00&toTime=2019-04-09T09%3A00%3A00.000%2B00%3A00",
 							"host": [
 								"{{OngoingURL}}"
 							],
@@ -1382,7 +1382,7 @@
 									"value": "2019-04-09T08%3A00%3A00.000%2B00%3A00"
 								},
 								{
-									"key": "to",
+									"key": "toTime",
 									"value": "2019-04-09T09%3A00%3A00.000%2B00%3A00"
 								}
 							]
