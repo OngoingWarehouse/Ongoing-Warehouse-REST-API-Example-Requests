@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "69ba7093-13cf-4286-84c2-40fd429dccd6",
+		"_postman_id": "a12d36bf-ff9d-41c1-a56d-85377fb5d1e7",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -213,6 +213,103 @@
 										"articles",
 										"{{ArticleSystemId}}",
 										"structureDefinition"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Article classes",
+					"item": [
+						{
+							"name": "Set article classes on an article",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"articleClassIds\": [\r\n        -1,\r\n        -2,\r\n        -3\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/articles/{{ArticleSystemId}}/classes",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"{{ArticleSystemId}}",
+										"classes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create or update an article class",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"goodsOwnerId\": {{GoodsOwnerId}},\r\n  \"code\": \"ArticleClassCode1\",\r\n  \"name\": \"Article class 1\",\r\n  \"comment\": \"Comment 1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/articles/classes",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"classes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all article classes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/classes",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"classes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an article class",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/articles/classes/{{ArticleClassId}}",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"articles",
+										"classes",
+										"{{ArticleClassId}}"
 									]
 								}
 							},
