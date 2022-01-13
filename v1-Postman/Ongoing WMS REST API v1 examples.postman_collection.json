@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a12d36bf-ff9d-41c1-a56d-85377fb5d1e7",
+		"_postman_id": "4569b633-5457-4bce-90cc-2bfc78e57722",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -494,6 +494,30 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get all article item statuses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/articleItems/statuses?goodsOwnerId={{GoodsOwnerId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"articleItems",
+								"statuses"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -656,6 +680,59 @@
 					]
 				},
 				{
+					"name": "Parcels",
+					"item": [
+						{
+							"name": "Create or update a parcel on an order",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"parcelNumber\": \"PARCELNO-123123\",\r\n  \"transportAdministrationType\": \"delivery\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/orders/{{OrderId}}/parcels",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"orders",
+										"{{OrderId}}",
+										"parcels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a parcel from an order",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/orders/{{OrderId}}/parcels/{{ParcelId}}",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"orders",
+										"{{OrderId}}",
+										"parcels",
+										"{{ParcelId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Create or update an order (only the required fields)",
 					"request": {
 						"method": "PUT",
@@ -702,6 +779,51 @@
 							],
 							"path": [
 								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an order using orderId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders",
+								"{{OrderId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an order using the order number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/orders?goodsOwnerId={{GoodsOwnerId}}&orderNumber={{OrderNumber}}",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "goodsOwnerId",
+									"value": "{{GoodsOwnerId}}"
+								},
+								{
+									"key": "orderNumber",
+									"value": "{{OrderNumber}}"
+								}
 							]
 						}
 					},
@@ -768,45 +890,38 @@
 					"response": []
 				},
 				{
-					"name": "Get an order using orderId",
+					"name": "Get all invoice charges for an order (note that this is only possible if the API user has Invoice access)",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{OngoingURL}}/orders/{{OrderId}}",
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/invoiceCharges",
 							"host": [
 								"{{OngoingURL}}"
 							],
 							"path": [
 								"orders",
-								"{{OrderId}}"
+								"{{OrderId}}",
+								"invoiceCharges"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get an order using the order number",
+					"name": "Get all waybill rows for an order",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{OngoingURL}}/orders?goodsOwnerId={{GoodsOwnerId}}&orderNumber={{OrderNumber}}",
+							"raw": "{{OngoingURL}}/orders/{{OrderId}}/wayBillRows",
 							"host": [
 								"{{OngoingURL}}"
 							],
 							"path": [
-								"orders"
-							],
-							"query": [
-								{
-									"key": "goodsOwnerId",
-									"value": "{{GoodsOwnerId}}"
-								},
-								{
-									"key": "orderNumber",
-									"value": "{{OrderNumber}}"
-								}
+								"orders",
+								"{{OrderId}}",
+								"wayBillRows"
 							]
 						}
 					},
@@ -1395,6 +1510,25 @@
 									"key": "purchaseOrderNumber",
 									"value": "{{PurchaseOrderNumber}}"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set the reported number of items to the received number of items",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}/setReportedNumberOfItemsToReceivedNumberOfItems",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"{{PurchaseOrderId}}",
+								"setReportedNumberOfItemsToReceivedNumberOfItems"
 							]
 						}
 					},
