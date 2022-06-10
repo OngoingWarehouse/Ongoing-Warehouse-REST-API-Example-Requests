@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4569b633-5457-4bce-90cc-2bfc78e57722",
+		"_postman_id": "8a8dce2b-98d3-45fb-a8b6-28c773993410",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1162,6 +1162,62 @@
 			"name": "Return orders",
 			"item": [
 				{
+					"name": "Return causes",
+					"item": [
+						{
+							"name": "Get all return causes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{OngoingURL}}/returnOrders/returnCauses?goodsOwnerId={{GoodsOwnerId}}",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"returnOrders",
+										"returnCauses"
+									],
+									"query": [
+										{
+											"key": "goodsOwnerId",
+											"value": "{{GoodsOwnerId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create or update a return cause",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"goodsOwnerId\": {{GoodsOwnerId}},\r\n    \"code\": \"RETURNCAUSECODE\",\r\n    \"name\": \"RETURNCASENAME\",\r\n    \"isRemoveCause\": false,\r\n    \"isChangeCause\": false,\r\n    \"isReturnCommentMandatory\": false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{OngoingURL}}/returnOrders/returnCauses",
+									"host": [
+										"{{OngoingURL}}"
+									],
+									"path": [
+										"returnOrders",
+										"returnCauses"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Create or update a return order",
 					"request": {
 						"method": "PUT",
@@ -1226,30 +1282,6 @@
 								{
 									"key": "customerOrderNumbers",
 									"value": "{{OrderNumber}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all return causes",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{OngoingURL}}/returnOrders/returnCauses?goodsOwnerId={{GoodsOwnerId}}",
-							"host": [
-								"{{OngoingURL}}"
-							],
-							"path": [
-								"returnOrders",
-								"returnCauses"
-							],
-							"query": [
-								{
-									"key": "goodsOwnerId",
-									"value": "{{GoodsOwnerId}}"
 								}
 							]
 						}
@@ -1559,6 +1591,34 @@
 								"lines",
 								"{{PurchaseOrderLineId}}",
 								"reportedNumberOfItems"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the indate on a particular purchase order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"inDate\": \"2022-06-10T06:26:06.291Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{OngoingURL}}/purchaseOrders/{{PurchaseOrderId}}/inDate",
+							"host": [
+								"{{OngoingURL}}"
+							],
+							"path": [
+								"purchaseOrders",
+								"{{PurchaseOrderId}}",
+								"inDate"
 							]
 						}
 					},
