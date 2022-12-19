@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8a8dce2b-98d3-45fb-a8b6-28c773993410",
+		"_postman_id": "e1ac5e08-f1da-473f-b41e-c3fc7e31778c",
 		"name": "Ongoing WMS REST API v1 examples",
 		"description": "Example requests for the Ongoing WMS REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -284,7 +284,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{OngoingURL}}/articles/classes?goodsOwner{{GoodsOwnerId}}",
+									"raw": "{{OngoingURL}}/articles/classes?goodsOwnerId={{GoodsOwnerId}}",
 									"host": [
 										"{{OngoingURL}}"
 									],
@@ -1823,12 +1823,12 @@
 		"basic": [
 			{
 				"key": "password",
-				"value": "password",
+				"value": "{{Password}}",
 				"type": "string"
 			},
 			{
 				"key": "username",
-				"value": "username",
+				"value": "{{Username}}",
 				"type": "string"
 			}
 		]
@@ -1905,6 +1905,18 @@
 		{
 			"key": "WayOfDeliveryTypeId",
 			"value": "-1"
+		},
+		{
+			"key": "Username",
+			"value": ""
+		},
+		{
+			"key": "Password",
+			"value": ""
+		},
+		{
+			"key": "GoodsOwnerCode",
+			"value": ""
 		}
 	]
 }
