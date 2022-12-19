@@ -284,13 +284,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{OngoingURL}}/articles/classes",
+									"raw": "{{OngoingURL}}/articles/classes?goodsOwner{{GoodsOwnerId}}",
 									"host": [
 										"{{OngoingURL}}"
 									],
 									"path": [
 										"articles",
 										"classes"
+									],
+									"query": [
+										{
+											"key": "goodsOwnerId",
+											"value": "{{GoodsOwnerId}}"
+										}
 									]
 								}
 							},
